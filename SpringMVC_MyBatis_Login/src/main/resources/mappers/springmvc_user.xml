@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="springmvcUser">
+    <select id="findAll" resultType="com.bruce.chen.entity.SpringmvcUser">
+        select * from springmvc_user order by id desc
+    </select>
+
+    <select id="findByName" parameterType="String" resultType="com.bruce.chen.entity.SpringmvcUser">
+        select * from springmvc_user u where u.uname =  #{value}
+    </select>
+
+    <select id="findById" parameterType="java.util.Map" resultType="com.bruce.chen.entity.SpringmvcUser">
+        select * from springmvc_user u where u.id between #{min} and #{max} order by id desc
+    </select>
+
+    <insert id="insertUser" parameterType="com.bruce.chen.entity.SpringmvcUser" useGeneratedKeys="true">
+        insert into springmvc_user(uname,upwd)
+        values (#{uname},#{upwd})
+        <selectKey resultType="Integer" keyProperty="id" order="AFTER">
+            select last_insert_id()
+        </selectKey>
+    </insert>
+
+    <update id="update" parameterType="com.bruce.chen.entity.SpringmvcUser">
+        UPDATE springmvc_user
+        SET
+            uname = #{uname},
+            upwd = #{upwd}
+        WHERE
+            id = #{id}
+    </update>
+</mapper>

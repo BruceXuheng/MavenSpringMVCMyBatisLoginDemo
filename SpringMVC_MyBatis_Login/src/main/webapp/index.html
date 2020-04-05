@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link rel="stylesheet" href="./css/loginh.css">
+
+</head>
+<body>
+<div class="loginbody">
+    <div id="content"></div>
+    <div class="logindata">
+        <h3>AJAX登录页</h3>
+        <br/>
+        账号:
+        <input type="text" name="uname" id="uname" title="姓名"/>
+        <br/>
+        密码:
+        <input type="text" name="upwd" id="upwd" title="密码"/>
+        <br>
+        <br>
+        <input type="submit" value="注册" id="register">
+        <input type="submit" value="登录" id="login">
+        <input type="submit" value="查看用户数据" id="select">
+    </div>
+
+    <form action="/loginForm" method="post">
+        <h3>Form登录</h3>
+        <br/>
+        账号:
+        <input type="text" name="uname" title="姓名"/>
+        <br/>
+        密码:
+        <input type="text" name="upwd" title="密码"/>
+        <br>
+        <input type="submit" value="登录">
+    </form>
+    <form action="/fromRegister" method="post">
+        <h3>Form注册页</h3>
+        <br/>
+        账号:
+        <input type="text" name="uname" title="姓名"/>
+        <br/>
+        密码:
+        <input type="text" name="upwd" title="密码"/>
+        <br>
+        <input type="submit" value="注册">
+    </form>
+    <form action="/fromSelect" method="post">
+        <h3>from查询数据</h3>
+        <br>
+        <input type="submit" value="from查询ALLUser数据">
+    </form>
+</div>
+
+<script src="./js/jquery-3.4.1.min.js"></script>
+<script src="./js/loginh.js"></script>
+
+</body>
+</html>
